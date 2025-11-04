@@ -1,0 +1,59 @@
+{
+  "users": [
+    {
+      "username": "alice",
+      "password": "SecurePass123"
+    },
+    {
+      "username": "bob",
+      "password": "PlainText!456"
+    }
+  ],
+  "scenarios": {
+    "valid_login": {
+      "input": {
+        "username": "alice",
+        "password": "SecurePass123",
+        "client_id": "test-device"
+      },
+      "expected": {
+        "status": "success",
+        "message": "Login successful."
+      }
+    },
+    "case_sensitive_login": {
+      "input": {
+        "username": "alice",
+        "password": "securepass123",
+        "client_id": "test-device"
+      },
+      "expected": {
+        "status": "failure",
+        "message": "Invalid credentials. Attempts left: 2."
+      },
+      "description": "Should fail because password case differs, but buggy implementation incorrectly accepts it."
+    },
+    "unknown_user": {
+      "input": {
+        "username": "mallory",
+        "password": "doesnotmatter",
+        "client_id": "test-device"
+      },
+      "expected": {
+        "status": "failure",
+        "message": "Unknown username."
+      }
+    },
+    "non_string_password": {
+      "input": {
+        "username": "bob",
+        "password": 12345,
+        "client_id": "test-device"
+      },
+      "expected": {
+        "status": "failure",
+        "message": "Password must be a string."
+      }
+    }
+  }
+}

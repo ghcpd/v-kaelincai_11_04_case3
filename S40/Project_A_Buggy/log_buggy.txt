@@ -1,0 +1,27 @@
+.F..                                                                     [100%]
+================================== FAILURES ===================================
+__________________ test_case_sensitive_password_should_fail ___________________
+
+service = <buggy_auth.AuthService object at 0x000001A067FE5BD0>
+sample_data = {'scenarios': {'case_sensitive_login': {'description': 'Should fail because password case differs, but buggy implement...e'}}}, 'users': [{'password': 'SecurePass123', 'username': 'alice'}, {'password': 'PlainText!456', 'username': 'bob'}]}
+
+    def test_case_sensitive_password_should_fail(service, sample_data):
+        """Expose the bug that lowercases passwords before hashing."""
+        scenario = sample_data["scenarios"]["case_sensitive_login"]
+        result = service.authenticate(**scenario["input"])
+        # Expected behavior: status failure because the password casing differs.
+>       assert result == scenario["expected"], (
+            "Bug reproduced: authentication succeeded even though the password "
+            "differed by case."
+        )
+E       AssertionError: Bug reproduced: authentication succeeded even though the password differed by case.
+E       assert {'message': '...s': 'success'} == {'message': '...s': 'failure'}
+E         Differing items:
+E         {'status': 'success'} != {'status': 'failure'}
+E         {'message': 'Login successful.'} != {'message': 'Invalid credentials. Attempts left: 2.'}
+E         Use -v to get more diff
+
+test_buggy.py:32: AssertionError
+=========================== short test summary info ===========================
+FAILED test_buggy.py::test_case_sensitive_password_should_fail - AssertionErr...
+1 failed, 3 passed in 0.34s

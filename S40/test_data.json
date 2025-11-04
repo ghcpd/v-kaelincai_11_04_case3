@@ -1,0 +1,47 @@
+{
+  "description": "Structured test matrix for validating functional authentication bug detection and fix.",
+  "cases": [
+    {
+      "id": "normal_success",
+      "input": {"username": "alice", "password": "SecurePass123", "client_id": "cli-1"},
+      "expected_output": {"status": "success", "message": "Login successful."},
+      "expected_response_status": "success",
+      "expected_test_outcome": "pass"
+    },
+    {
+      "id": "case_sensitivity",
+      "input": {"username": "alice", "password": "securepass123", "client_id": "cli-2"},
+      "expected_output": {"status": "failure", "message": "Invalid credentials."},
+      "expected_response_status": "failure",
+      "expected_test_outcome": "fail-before-fix"
+    },
+    {
+      "id": "empty_username",
+      "input": {"username": "", "password": "anything", "client_id": "cli-3"},
+      "expected_output": {"status": "failure", "message": "Username must be a non-empty string."},
+      "expected_response_status": "failure",
+      "expected_test_outcome": "pass"
+    },
+    {
+      "id": "sql_injection_attempt",
+      "input": {"username": "alice", "password": "' OR '1'='1", "client_id": "cli-4"},
+      "expected_output": {"status": "failure", "message": "Invalid credentials."},
+      "expected_response_status": "failure",
+      "expected_test_outcome": "pass"
+    },
+    {
+      "id": "non_string_password",
+      "input": {"username": "bob", "password": 12345, "client_id": "cli-5"},
+      "expected_output": {"status": "failure", "message": "password must be provided as a string"},
+      "expected_response_status": "failure",
+      "expected_test_outcome": "pass"
+    },
+    {
+      "id": "repeated_attempts_lockout",
+      "input": {"username": "mallory", "password": "wrong", "client_id": "cli-6"},
+      "expected_output": {"status": "failure", "message": "Too many attempts."},
+      "expected_response_status": "failure",
+      "expected_test_outcome": "pass-after-fix"
+    }
+  ]
+}
