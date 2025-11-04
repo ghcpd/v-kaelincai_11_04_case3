@@ -1,0 +1,9 @@
+============================= test session starts =============================
+platform linux -- Python 3.11.6, pytest-7.4.4, pluggy-1.3.0
+cachedir: .pytest_cache
+rootdir: Project_B_Fixed
+collected 7 items
+
+project_b_fixed/test_fixed.py .......                                       [100%]
+
+============================== 7 passed in 0.38s ==============================

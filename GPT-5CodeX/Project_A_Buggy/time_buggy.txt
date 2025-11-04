@@ -1,0 +1,7 @@
+{
+  "total_execution_time_seconds": 0.42,
+  "tests_run": 5,
+  "tests_failed": 2,
+  "tests_passed": 3,
+  "error_rate": 0.4
+}
