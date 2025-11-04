@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "case": "Valid login exact password",
+    "input": {"username": "alice", "password": "SecurePass123"},
+    "expected_output": {"status": "success", "message": "Login successful"},
+    "expected_status": "success",
+    "expected_result_buggy": "pass",
+    "expected_result_fixed": "pass"
+  },
+  {
+    "id": 2,
+    "case": "Substring password should fail (buggy passes)",
+    "input": {"username": "alice", "password": "Secure"},
+    "expected_output": {"status": "failure", "message": "Invalid credentials"},
+    "expected_status": "failure",
+    "expected_result_buggy": "fail",
+    "expected_result_fixed": "pass"
+  },
+  {
+    "id": 3,
+    "case": "Empty password",
+    "input": {"username": "bob", "password": ""},
+    "expected_output": {"status": "failure", "message": "Invalid credentials"},
+    "expected_status": "failure",
+    "expected_result_buggy": "fail",
+    "expected_result_fixed": "pass"
+  },
+  {
+    "id": 4,
+    "case": "SQL injection attempt",
+    "input": {"username": "alice", "password": "' OR 1=1"},
+    "expected_output": {"status": "failure", "message": "Invalid credentials"},
+    "expected_status": "failure",
+    "expected_result_buggy": "fail",
+    "expected_result_fixed": "pass"
+  },
+  {
+    "id": 5,
+    "case": "Non-string numeric password",
+    "input": {"username": "charlie", "password": 123456789},
+    "expected_output": {"status": "failure", "message": "Invalid credentials"},
+    "expected_status": "failure",
+    "expected_result_buggy": "fail",
+    "expected_result_fixed": "pass"
+  },
+  {
+    "id": 6,
+    "case": "Excessively long password",
+    "input": {"username": "bob", "password": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"},
+    "expected_output": {"status": "failure", "message": "Invalid credentials"},
+    "expected_status": "failure",
+    "expected_result_buggy": "fail",
+    "expected_result_fixed": "pass"
+  }
+]
