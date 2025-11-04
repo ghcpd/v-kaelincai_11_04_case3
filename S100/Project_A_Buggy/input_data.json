@@ -1,0 +1,22 @@
+[
+  {
+    "description": "Valid login for Alice with exact credentials",
+    "input": {"username": "alice", "password": "SecurePass123!"},
+    "expected": {"status": "success"}
+  },
+  {
+    "description": "Password containing trailing whitespace should fail but currently passes",
+    "input": {"username": "alice", "password": "SecurePass123! "},
+    "expected": {"status": "failure"}
+  },
+  {
+    "description": "SQL injection style payload should be rejected",
+    "input": {"username": "alice", "password": "' OR '1'='1"},
+    "expected": {"status": "failure"}
+  },
+  {
+    "description": "Locked account scenario once attempts exceeded",
+    "input": {"username": "charlie", "password": "bad"},
+    "expected": {"status": "failure"}
+  }
+]

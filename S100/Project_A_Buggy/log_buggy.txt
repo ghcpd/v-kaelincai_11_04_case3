@@ -1,0 +1,21 @@
+.F....                                                                   [100%]
+================================== FAILURES ===================================
+__________________ test_password_with_whitespace_should_fail __________________
+
+    def test_password_with_whitespace_should_fail():
+        store = get_default_store()
+        # The bug in buggy_auth.py normalizes passwords by stripping whitespace,
+        # which incorrectly allows the login below to succeed. The expected
+        # behavior is failure, so this assertion exposes the regression.
+        result = authenticate({"username": "alice", "password": "SecurePass123! "}, store)
+        sanitized = format_result(result)
+>       assert sanitized["status"] == "failure", "Whitespace-padded password must not authenticate"
+E       AssertionError: Whitespace-padded password must not authenticate
+E       assert 'success' == 'failure'
+E         - failure
+E         + success
+
+test_buggy.py:33: AssertionError
+=========================== short test summary info ===========================
+FAILED test_buggy.py::test_password_with_whitespace_should_fail - AssertionEr...
+1 failed, 5 passed in 0.08s
