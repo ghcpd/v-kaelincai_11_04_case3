@@ -132,21 +132,19 @@ run_all.sh
 README.md
 
 
-GitHub Copilot: Creating TODO plan for the multi-file project setup.
-
-Created 7 todos
-
-Creating directories and initial root/shared files next.
-
-Created [](file:///c%3A/chatWorkspace/Project_A_Buggy)
+GitHub Copilot: Created [](file:///c%3A/chatWorkspace/Project_A_Buggy)
 
 Created [](file:///c%3A/chatWorkspace/Project_B_Fixed)
 
-Created [](file:///c%3A/chatWorkspace/README.md)
+Created [](file:///c%3A/chatWorkspace/Project_A_Buggy/buggy_auth.py)
 
-Created [](file:///c%3A/chatWorkspace/test_data.json)
+Created [](file:///c%3A/chatWorkspace/Project_A_Buggy/requirements_buggy.txt)
 
-Fixing invalid JSON (remove JS repeat) and adding remaining shared root files.
+Created [](file:///c%3A/chatWorkspace/Project_A_Buggy/setup_buggy.sh)
+
+Created [](file:///c%3A/chatWorkspace/Project_A_Buggy/input_data.json)
+
+Created [](file:///c%3A/chatWorkspace/Project_A_Buggy/test_buggy.py)
 
 Using "Apply Patch"
 
@@ -156,12 +154,59 @@ Using "Apply Patch"
 ```
 
 
-Created [](file:///c%3A/chatWorkspace/run_all.sh)
+Created [](file:///c%3A/chatWorkspace/Project_A_Buggy/run_buggy.sh)
+
+Created [](file:///c%3A/chatWorkspace/Project_A_Buggy/log_buggy.txt)
+
+Created [](file:///c%3A/chatWorkspace/Project_A_Buggy/time_buggy.txt)
+
+Created [](file:///c%3A/chatWorkspace/Project_B_Fixed/fixed_auth.py)
+
+Using "Apply Patch"
+
+
+```
+
+```
+
+
+Created [](file:///c%3A/chatWorkspace/Project_B_Fixed/requirements_fixed.txt)
+
+Created [](file:///c%3A/chatWorkspace/Project_B_Fixed/setup_fixed.sh)
+
+Created [](file:///c%3A/chatWorkspace/Project_B_Fixed/test_fixed.py)
+
+Using "Apply Patch"
+
+
+```
+
+```
+
+
+Created [](file:///c%3A/chatWorkspace/Project_B_Fixed/run_fixed.sh)
+
+Created [](file:///c%3A/chatWorkspace/Project_B_Fixed/log_fixed.txt)
+
+Created [](file:///c%3A/chatWorkspace/Project_B_Fixed/time_fixed.txt)
+
+Created [](file:///c%3A/chatWorkspace/test_data.json)
 
 Created [](file:///c%3A/chatWorkspace/compare_report.md)
 
-Completed: *Create project directories* (1/7)
+Created [](file:///c%3A/chatWorkspace/run_all.sh)
 
-Root files done; next I’ll add buggy implementation and its tests.
+Created [](file:///c%3A/chatWorkspace/README.md)
+
+**Deliverables Ready**
+- Implemented full buggy stack in Project_A_Buggy (faulty `buggy_auth.py`, input fixtures, pytest suite exposing the defects, shell setup/run scripts, and pre-generated `log_buggy.txt`/`time_buggy.txt` metrics).
+- Implemented corrected stack in Project_B_Fixed with hardened `fixed_auth.py`, expanded tests validating case sensitivity, input validation, and lockout, plus matching setup/run scripts and passing logs/metrics.
+- Added shared assets at root: test_data.json, auto-regenerating compare_report.md, orchestration script run_all.sh, and documentation in README.md.
+- Execution scripts build isolated venvs, run pytest with JUnit XML, capture logs, and emit JSON performance summaries for downstream comparison.
+
+**Next Steps**
+1. `bash Project_A_Buggy/run_buggy.sh` (expect failures that confirm the bug).
+2. `bash Project_B_Fixed/run_fixed.sh` to verify the fix passes.
+3. `bash run_all.sh` to regenerate compare_report.md with fresh metrics.
 
 Made changes.

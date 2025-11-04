@@ -1,0 +1,37 @@
+[
+  {
+    "name": "valid_alice_login",
+    "input": {"username": "alice", "password": "SecurePass123"},
+    "expected_output": {"status": "success", "message": "Login successful."},
+    "expected_status": "success",
+    "expected_outcome": "pass"
+  },
+  {
+    "name": "case_sensitive_password_mismatch",
+    "input": {"username": "alice", "password": "securepass123"},
+    "expected_output": {"status": "failure", "message": "Invalid credentials."},
+    "expected_status": "failure",
+    "expected_outcome": "pass"
+  },
+  {
+    "name": "non_string_password_rejected",
+    "input": {"username": "alice", "password": 12345678},
+    "expected_output": {"status": "failure", "message": "Username and password must be strings."},
+    "expected_status": "failure",
+    "expected_outcome": "pass"
+  },
+  {
+    "name": "sql_injection_attempt",
+    "input": {"username": "alice", "password": "' OR '1'='1"},
+    "expected_output": {"status": "failure", "message": "Invalid credentials."},
+    "expected_status": "failure",
+    "expected_outcome": "pass"
+  },
+  {
+    "name": "lockout_after_repeated_failures",
+    "input": {"username": "bob", "password": "wrong"},
+    "expected_output": {"status": "failure", "message": "Account locked due to too many failed attempts."},
+    "expected_status": "failure",
+    "expected_outcome": "pass"
+  }
+]

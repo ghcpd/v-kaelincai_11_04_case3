@@ -1,0 +1,18 @@
+[
+  {
+    "description": "Valid credentials for Alice",
+    "input": {"username": "alice", "password": "SecurePass123"}
+  },
+  {
+    "description": "Incorrect password differing only by case",
+    "input": {"username": "alice", "password": "securepass123"}
+  },
+  {
+    "description": "Unknown username",
+    "input": {"username": "mallory", "password": "Whatever!"}
+  },
+  {
+    "description": "Empty password",
+    "input": {"username": "bob", "password": ""}
+  }
+]
