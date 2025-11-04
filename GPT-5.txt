@@ -1,0 +1,167 @@
+CCJJLL630: Role
+You are a software engineer responsible for implementing and testing the capabilities of AI models on the Functional bug subtype within the Bug-related category.
+Your task is to provide two separate, complete Python projects:
+Project A – Pre-Fix (Buggy Implementation)
+A project that contains the original, faulty implementation demonstrating a functional defect such as incorrect logic in user authentication, data processing errors, or inconsistent system behavior under valid input conditions.
+Project B – Post-Fix (Corrected Implementation)
+A project that contains the corrected and optimized implementation addressing all issues identified in Project A, ensuring correctness, robustness, and performance efficiency.
+Each project must include its own code, environment setup, test cases, and execution scripts.
+You must ensure that all files are generated, stored locally, and fully reproducible.
+Both projects should handle optimizations, edge cases, and correctness verification while providing measurable improvements in functional accuracy, stability, and performance.
+________________________________________
+Title
+Evaluation of GPT-5-Codex, GPT-5, Claude Sonnet 4.5, S100, and S40 on Bug-related – Functional Bug Detection and Correction
+________________________________________
+Description
+This experiment evaluates AI models’ ability to identify, diagnose, and fix functional bugs in software systems — specifically focusing on logic-level defects in user authentication, data validation, or algorithmic operations that cause incorrect or inconsistent outputs.
+The focus is on correctness restoration, robustness against malformed inputs, and improvement in performance and reliability after bug correction.
+Key Evaluation Criteria
+Correctness of both pre- and post-fix implementations
+Optimization and efficiency of the corrected solution (execution time, resource usage)
+Handling of malformed inputs, hidden vulnerabilities, non-string inputs, and complex nested logic
+Comprehensive automated test coverage validating the correctness of the fix
+Fully reproducible setup with one-click testing and reporting
+Quantitative comparison of accuracy, stability, and performance improvements
+________________________________________
+Requirements for the AI Model Output
+1.	Test Scenario & Description
+Clearly describe the functional bug scenario being tested.
+Specify:
+•	The faulty logic or incorrect behavior in the pre-fix version (e.g., flawed password comparison or missing validation in a login system).
+•	The corrected logic and expected behavior after fixing the bug.
+•	The expected input and output formats (preferably JSON or Python dict).
+Example:
+Input – {"username": "alice", "password": "SecurePass123"}
+Expected Output – {"status": "success", "message": "Login successful"}
+________________________________________
+2.	Project A – Pre-Fix (Buggy Implementation)
+Generate a complete project folder named “Project_A_Buggy” containing:
+buggy_auth.py – The original faulty authentication logic that incorrectly validates passwords or mishandles edge cases.
+requirements_buggy.txt – Environment setup file for dependencies.
+setup_buggy.sh – Script to initialize the environment.
+input_data.json – Sample inputs demonstrating both normal and failing cases.
+test_buggy.py – Automated tests that expose incorrect authentication and validation failures.
+run_buggy.sh – Execution script for running tests and saving logs.
+log_buggy.txt – Log file capturing failed test cases and erroneous outputs.
+time_buggy.txt – Performance metrics (execution time, error rate) for the buggy version.
+________________________________________
+3.	Project B – Post-Fix (Corrected Implementation)
+Generate a complete project folder named “Project_B_Fixed” containing:
+fixed_auth.py – The corrected implementation with secure password comparison, strict validation, and consistent result handling.
+requirements_fixed.txt – Environment setup file for dependencies.
+setup_fixed.sh – Script to initialize environment for the corrected version.
+test_fixed.py – Automated tests validating the fixed logic and improved functional correctness.
+run_fixed.sh – Execution script to run all tests and collect results.
+log_fixed.txt – Log file recording successful and failed authentication attempts.
+time_fixed.txt – Performance and accuracy metrics for the corrected version.
+________________________________________
+4.	Test Data Generation
+Generate at least five structured test cases saved in test_data.json, covering:
+Normal cases – Valid login credentials producing correct authentication.
+Boundary cases – Empty fields, special characters, and case-sensitive passwords.
+Invalid or malformed inputs – SQL injection attempts, non-string passwords, or missing fields.
+Edge conditions – Repeated login attempts, rate limits, or excessive password length.
+Each test must define:
+•	Input payload
+•	Expected output
+•	Expected response status (success/failure)
+•	Expected outcome (pass/fail)
+________________________________________
+5.	Comparison and Reporting
+After both projects have been executed, generate a summary report (compare_report.md) including:
+Side-by-side comparison of pre-fix and post-fix results
+Success rate, accuracy, and error rate before and after correction
+Edge case handling improvements and validation consistency
+Performance metrics such as execution time and test coverage rate
+Observations on correctness restoration and reliability improvement
+________________________________________
+6.	Reproducible Environment
+Both projects must include:
+Their own environment setup (requirements.txt or Dockerfile)
+Setup scripts (setup_buggy.sh, setup_fixed.sh)
+Instructions for installing dependencies, running tests, and verifying results
+________________________________________
+7.	Execution Scripts
+Each project must include a one-click execution script (run_buggy.sh and run_fixed.sh) that performs:
+Environment setup
+Running of test cases
+Saving of logs and performance metrics
+Additionally, a master script (run_all.sh) must be generated at the root level to:
+•	Execute both projects sequentially
+•	Aggregate results
+•	Produce the final compare_report.md
+________________________________________
+8.	Expected Output
+The model must output all required files for both Project A and Project B, including:
+Functional implementation code
+Test cases and input data
+Logs, accuracy reports, and performance metrics
+Setup and execution scripts
+Comparison report with summarized evaluation metrics
+________________________________________
+9.	Documentation
+Generate a README.md file at the root level explaining:
+The purpose of each project
+The functional bug scenario being tested and the fix implemented
+Instructions to run each project individually and combined
+Environment setup, dependencies, and reproducibility steps
+Limitations or known constraints (e.g., simulated user authentication without real database access)
+________________________________________
+Deliverables (All must be saved as local files)
+Project A – Pre-Fix (Buggy Implementation)
+input_data.json
+buggy_auth.py
+requirements_buggy.txt
+setup_buggy.sh
+test_buggy.py
+run_buggy.sh
+log_buggy.txt
+time_buggy.txt
+Project B – Post-Fix (Corrected Implementation)
+fixed_auth.py
+requirements_fixed.txt
+setup_fixed.sh
+test_fixed.py
+run_fixed.sh
+log_fixed.txt
+time_fixed.txt
+Shared Deliverables
+test_data.json
+compare_report.md
+run_all.sh
+README.md
+
+
+GitHub Copilot: Creating TODO plan for the multi-file project setup.
+
+Created 7 todos
+
+Creating directories and initial root/shared files next.
+
+Created [](file:///c%3A/chatWorkspace/Project_A_Buggy)
+
+Created [](file:///c%3A/chatWorkspace/Project_B_Fixed)
+
+Created [](file:///c%3A/chatWorkspace/README.md)
+
+Created [](file:///c%3A/chatWorkspace/test_data.json)
+
+Fixing invalid JSON (remove JS repeat) and adding remaining shared root files.
+
+Using "Apply Patch"
+
+
+```
+
+```
+
+
+Created [](file:///c%3A/chatWorkspace/run_all.sh)
+
+Created [](file:///c%3A/chatWorkspace/compare_report.md)
+
+Completed: *Create project directories* (1/7)
+
+Root files done; next I’ll add buggy implementation and its tests.
+
+Made changes.
